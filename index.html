@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> vehicle routing problem</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+  <!-- <input type="file" accept=".txt" id="file" />
+    <button onclick="go()">click</button> -->
+  <section class="main">
+    <div class="container">
+      <div class="aside">
+        <div class="select-data">
+          <label for="data-btn">select data</label>
+          <input type="file" accept=".txt" id="data-btn"></input>
+          <p id="data-notif">please select data.</p>
+        </div>
+
+
+        <form class="form">
+          <div class="input">
+            <label for="nbr-of-population"> give size of population</label>
+            <input type="number" max="1000" id="nbr-of-population" placeholder="ex: 200" />
+          </div>
+
+          <div class="input">
+            <label for="">crossover ratio </label>
+            <input type="number" id="crossover-ratio" placeholder="ex: 70%" maxlength="2" />
+          </div>
+          <div class="input">
+            <label for="">mutation rate</label>
+            <input type="number" id="mutation-rate" placeholder="ex 2 %" maxlength="3" />
+          </div>
+          <div class="input">
+            <label for="">number of generations</label>
+            <input type="number" id="nbr-of-generations" placeholder="1200" maxlength="4" />
+          </div>
+        </form>
+        <p id="input-notif">please give valid input.</p>
+        <button id="excute-btn" onclick="excute()">excute</button>
+
+        <div id="results">
+          <h1>results</h1>
+          <p>distance : <span id="distance-result"></span></p>
+          <p>vehihucles used : <span id="vehicules-result"></span></p>
+          <p>Routes :</p>
+          <ol id="routes-result">
+          </ol>
+
+          <div id="routes"></div>
+        </div>
+      </div>
+      <div class="illust">
+        <canvas id="routes-canvas"></canvas>
+
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+
+    <div id="notif">
+      <h3>Generation : <span id="gen"></span></h3>
+      <p id="proc-notif">please wait ...</p>
+    </div>
+
+    <div id="selected-route">
+      <p>route : <span id="num-route-result"></span></p>
+
+      <p>distance : <span id="distance-route-result"></span></p>
+      <p>load : <span id="vehicules-load-result"></span></p>
+      <p>capacity of vehicule : <span id="vehicules-capacity"></span></p>
+
+    </div>
+
+    <div id="selected-customer">
+      <p> customer ID : <span id="cust-id-result"></span></p>
+      <p> customer coordinates : <span id="cust-coord"></span></p>
+      <p>demande : <span id="demande-result"></span></p>
+    </div>
+  </section>
+  <script src="js/functions.js"></script>
+  <script src="js/customer.js"></script>
+  <script src="js/population.js"></script>
+  <script src="js/genes.js"></script>
+  <script src="main.js"></script>
+
+
+
+
+</body>
+
+</html>
