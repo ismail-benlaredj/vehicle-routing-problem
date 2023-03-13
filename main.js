@@ -37,10 +37,10 @@ fileSelector.addEventListener('change', () => {
   dataNotif.style.display = 'none';
 
   if (fileSelector.value !== "0") {
-    fetch(`https://vehicle-routing-problem.netlify.app/data/${fileSelector.value}.txt`)
+    fetch(`/data/${fileSelector.value}.txt`)
       .then(response => response.text())
       .then(txt => {
-
+        console.log(txt)
         custData = [];
         custData = getData(txt);
         calcDistance();
