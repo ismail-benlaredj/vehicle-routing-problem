@@ -37,7 +37,7 @@ fileSelector.addEventListener('change', () => {
   dataNotif.style.display = 'none';
 
   if (fileSelector.value !== "0") {
-    fetch(`/data/${fileSelector.value}.txt`)
+    fetch(`https://vehicle-routing-problem.netlify.app/data/${fileSelector.value}.txt`)
       .then(response => response.text())
       .then(txt => {
 
