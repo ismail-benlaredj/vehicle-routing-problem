@@ -42,7 +42,6 @@ fileSelector.addEventListener('change', () => {
       .then(txt => {
         custData = [];
         custData = getData(txt);
-        calcDistance();
       });
   } else {
     custData = [];
@@ -153,6 +152,7 @@ function excute() {
     resultDiv.style.display = 'none';
     document.getElementById('selected-route').style.display = 'none';
     selectedCustomer.style.display = 'none';
+    calcDistance();
 
     savingsArr = calcSaving();
 
@@ -171,27 +171,28 @@ function excute() {
       var id = setInterval(frame, 0.1);
 
       function frame() {
+        excuteBtn.disabled = true
+        excuteBtn.style.backgroundColor = "gray"
+        excuteBtn.style.cursor = 'not-allowed'
         if (gen > nbrOfGenerations) {
-
-
           pop.orderPop();
           pop.naturalSelection();
           drawPath();
           showResults();
-
           procNotif.innerHTML = 'Done !';
           window.scrollTo(0, 450);
           clearInterval(id);
+          excuteBtn.disabled = false
+          excuteBtn.style.backgroundColor = "rgb(0, 0, 22)"
+          excuteBtn.style.cursor = "pointer"
           inter = 0;
         } else {
-
           pop.orderPop();
           pop.naturalSelection();
           pop.crossover();
           pop.mutation();
           children = [];
           drawPath();
-
           txt.innerHTML = gen;
           gen++;
         }
