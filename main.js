@@ -35,10 +35,6 @@ var x;
 fileSelector.addEventListener('change', () => {
   //hide notification
   dataNotif.style.display = 'none';
-  // Create a new File object with the file path
-  // console.log("/data/" + fileSelector.value + ".txt")
-  // var file = new File(["/data/" + fileSelector.value + ".txt"], fileSelector.value);
-  // console.log(file.stream())
 
   if (fileSelector.value !== "0") {
     fetch(`/data/${fileSelector.value}.txt`)
