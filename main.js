@@ -40,9 +40,6 @@ fileSelector.addEventListener('change', () => {
     fetch(`/data/${fileSelector.value}.txt`)
       .then(response => response.text())
       .then(txt => {
-        var txtToArr = txt.split(/\r?\n/);
-        console.log(txtToArr)
-        console.log(parseInt(txtToArr[4].split(' ').filter((e) => e != '')[0]))
         custData = [];
         custData = getData(txt);
         calcDistance();
@@ -56,7 +53,8 @@ fileSelector.addEventListener('change', () => {
 //////////////////////////////////////
 
 function getData(txt) {
-  var txtToArr = txt.split('\r\n');
+  var txtToArr = txt.split(/\r?\n/);
+  //var txtToArr = txt.split('\r\n');
 
   // var lineArr = x.split(' ');
   //   var numbers = lineArr.filter((e) => e != '');
