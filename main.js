@@ -31,21 +31,28 @@ var inter = 0;
 ////// GET DATA FROM FILES
 const fileSelector = document.getElementById('data-btn');
 var x;
+
 fileSelector.addEventListener('change', () => {
   //hide notification
   dataNotif.style.display = 'none';
+  // Create a new File object with the file path
+  // console.log("/data/" + fileSelector.value + ".txt")
+  // var file = new File(["/data/" + fileSelector.value + ".txt"], fileSelector.value);
+  // console.log(file.stream())
 
-  var reader = new FileReader();
+  if (fileSelector.value !== "0") {
+    fetch(`/data/${fileSelector.value}.txt`)
+      .then(response => response.text())
+      .then(txt => {
 
-  reader.onload = () => {
-    var txt = reader.result;
-    //  console.log(txt.split('\r\n'));
+        custData = [];
+        custData = getData(txt);
+        calcDistance();
+      });
+  } else {
     custData = [];
-    custData = getData(txt);
-    calcDistance();
-  };
 
-  reader.readAsText(fileSelector.files[0]);
+  }
 });
 
 //////////////////////////////////////
